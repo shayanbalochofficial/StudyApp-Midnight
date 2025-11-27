@@ -1,9 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+"use client";
 
-const AnimatedContent = () => {
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+export default function AnimatedContent() {
   return (
     <motion.div
       className="z-10 backdrop-blur-lg bg-black/30 p-8 rounded-2xl shadow-2xl max-w-3xl w-full"
@@ -14,7 +15,7 @@ const AnimatedContent = () => {
       <motion.h1
         className="text-5xl md:text-7xl font-bold mb-8 text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-600"
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         Elevate Your Study Game
@@ -44,6 +45,7 @@ const AnimatedContent = () => {
         <Button
           asChild
           size="lg"
+          variant="outline"
           className="text-lg px-8 py-6 rounded-full border-2 hover:bg-white/10 transition-all duration-300"
         >
           <Link href="/countdown">View Countdown</Link>
@@ -51,6 +53,4 @@ const AnimatedContent = () => {
       </motion.div>
     </motion.div>
   );
-};
-
-export default AnimatedContent;
+}
