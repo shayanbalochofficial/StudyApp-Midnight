@@ -1,5 +1,4 @@
-import React from 'react'
-
+"use state"
 const page = () => {
   return (
     <div>
