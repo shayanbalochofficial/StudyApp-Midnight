@@ -1,6 +1,14 @@
 "use state";
 
-import { Select, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useEffect, useState } from "react";
 
 interface Todo {
@@ -95,7 +103,22 @@ const page = () => {
           <SelectTrigger className="w-full sm:w-[100px] bg-gray-800/50 border-gray-700 focus:border-purple-500 focus:ring-purple-500">
             <SelectValue placeholder="Select Subject"></SelectValue>
           </SelectTrigger>
+          <SelectContent>
+            {subjects.map((subject) => (
+              <SelectItem key={subject} value={subject}>
+                {subject}
+              </SelectItem>
+            ))}
+          </SelectContent>
         </Select>
+        <Input
+          type="text"
+          placeholder="Add a new task..."
+          value={newTodo}
+          onChange={(e) => setNewTodo(e.target.value)}
+          className="grow bg-gray-800 border-gray-700 focus:border-purple-500 focus:ring-purple-500 "
+        />
+        <Button onClick={addTodo}></Button>
       </div>
     </div>
   );
