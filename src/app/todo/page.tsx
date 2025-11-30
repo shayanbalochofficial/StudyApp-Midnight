@@ -144,7 +144,6 @@ const page = () => {
                 exit={{ opacity: 0, height: 0 }}
                 className="mb-4"
               >
-
                 <button
                   id={buttonId}
                   type="button"
@@ -160,7 +159,7 @@ const page = () => {
                   )}
                   <h2 className="text-xl font-semibold">{subject}</h2>
                 </button>
-                
+
                 {expandedSubjects.includes(subject) && (
                   <AnimatePresence>
                     <motion.div
@@ -181,6 +180,23 @@ const page = () => {
                             onCheckedChange={() => toggleTodo(todo.id)}
                             className="mr-2 border-gray-600"
                           />
+                          <span
+                            className={`grow ${
+                              todo.completed
+                                ? "line-through text-gray-500"
+                                : "text-gray-200"
+                            }`}
+                          >
+                            {todo.text}
+                          </span>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => removeTodo(todo.id)}
+                            className="text-gray-400 hover:text-red-500 transition-colors duration-300"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
                         </motion.div>
                       ))}
                     </motion.div>
